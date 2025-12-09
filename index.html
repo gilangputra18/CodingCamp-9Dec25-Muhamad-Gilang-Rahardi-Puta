@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To-Do App</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Daftar Tugas</h1>
+
+        <!-- Form Input -->
+        <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Masukkan tugas..." />
+            <input type="date" id="dateInput" />
+            <button type="submit">Tambah</button>
+        </form>
+
+        <!-- Filter -->
+        <select id="filter">
+            <option value="all">Semua</option>
+            <option value="done">Selesai</option>
+            <option value="pending">Belum Selesai</option>
+        </select>
+
+        <!-- Daftar Tugas -->
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
