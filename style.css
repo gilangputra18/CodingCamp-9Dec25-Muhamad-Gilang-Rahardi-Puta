@@ -1,148 +1,176 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+* {
     margin: 0;
-    padding: 20px;
-    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.container {
-    max-width: 600px;
+.wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    max-width: 800px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: 300;
-    font-size: 2.5em;
-}
-
-form {
-    display: flex;
-    gap: 15px;
+    color: #4a4a4a;
     margin-bottom: 25px;
-    flex-wrap: wrap;
-}
-
-form input, form button {
-    padding: 12px 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-form input {
-    flex: 1;
-    min-width: 200px;
-    background: #f8f9fa;
-}
-
-form input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
-}
-
-form button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    cursor: pointer;
     font-weight: 600;
 }
 
-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-#filter {
-    width: 100%;
+.input-container input[type="text"] {
+    flex-grow: 1;
+}
+
+.input-container input {
     padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: #5b99ea;
+}
+
+.input-container button {
+    padding: 0 18px;
+    font-size: 18px;
+    background-color: #5b99ea;
+    color: white;
     border: none;
     border-radius: 8px;
-    background: #f8f9fa;
-    font-size: 16px;
-    margin-bottom: 25px;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#filter:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+.input-container button:hover {
+    background-color: #4a88d6;
 }
 
-#taskList li {
+.input-container button.edit-mode {
+    background-color: #28a745; /* Green for save */
+}
+.input-container button.edit-mode:hover {
+    background-color: #218838;
+}
+
+.action-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
-#taskList li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.done {
-    text-decoration: line-through;
-    opacity: 0.6;
-    color: #888;
-}
-
-.task-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-.task-buttons button {
-    padding: 8px 12px;
+.small-btn {
+    padding: 8px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#filterBtn {
+    background-color: #6c757d;
+    color: white;
+}
+
+#filterBtn:hover {
+    background-color: #5a6268;
+}
+
+.small-btn.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.small-btn.delete:hover {
+    background-color: #c82333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+tbody tr.completed td:first-child {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-style: italic;
+}
+
+.actions {
+    text-align: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
     font-size: 16px;
-    transition: all 0.3s ease;
+    margin: 0 5px;
+    color: #6c757d;
+    transition: color 0.3s;
 }
 
-.toggle-btn {
-    background: #28a745;
-    color: white;
+.action-btn.edit-btn:hover {
+    color: #007bff;
 }
 
-.toggle-btn:hover {
-    background: #218838;
-    transform: scale(1.1);
+.action-btn.delete-btn:hover {
+    color: #dc3545;
 }
 
-.delete-btn {
-    background: #dc3545;
-    color: white;
-}
-
-.delete-btn:hover {
-    background: #c82333;
-    transform: scale(1.1);
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.status-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
 }

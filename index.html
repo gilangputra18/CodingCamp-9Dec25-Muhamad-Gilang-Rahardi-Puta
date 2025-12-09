@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple To-Do App</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Daftar Tugas</h1>
+<div class="wrapper">
+    <h1>Todo List</h1>
 
-        <!-- Form Input -->
-        <form id="taskForm">
-            <input type="text" id="taskInput" placeholder="Masukkan tugas..." />
-            <input type="date" id="dateInput" />
-            <button type="submit">Tambah</button>
-        </form>
-
-        <!-- Filter -->
-        <select id="filter">
-            <option value="all">Semua</option>
-            <option value="done">Selesai</option>
-            <option value="pending">Belum Selesai</option>
-        </select>
-
-        <!-- Daftar Tugas -->
-        <ul id="taskList"></ul>
+    <div class="input-container">
+        <input type="text" id="taskInput" placeholder="Add a todo . . .">
+        <input type="date" id="dateInput">
+        <button id="addBtn"><i class="fas fa-plus"></i></button>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="action-row">
+        <button id="filterBtn" class="small-btn">FILTER</button>
+        <button id="deleteAllBtn" class="small-btn delete">DELETE ALL</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>TASK</th>
+                <th>DUE DATE</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable">
+            <tr><td colspan="4" class="empty">No task found</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
